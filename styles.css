@@ -5,31 +5,40 @@ body {
     background-color: #f4f4f4;
     text-align: center;
 }
-
 a {
     text-decoration: none;
     color: black;
-    padding: 10px 20px;
-    display: inline-block;
 }
-
 /* Navbar styles */
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    box-sizing: border-box;
     padding: 10px;
     background-color: #6986ac;
+    max-width: 50em;
+    margin: 1em auto; /* Ceneters navbar elements */ 
+    border-radius: 1em;
 }
 
 .name {
-    flex: 0 0 auto; /* Don't grow, don't shrink, auto base size */
+    flex: 0 0 auto;
     margin-right: auto; /* Pushes the links div to the center */
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .links {
     display: flex;
     justify-content: center;
     gap: 10px; /* Adjusts the space between each link */
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    display: inline-block;
 }
 
