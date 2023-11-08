@@ -1,10 +1,12 @@
 body {
     font-family: Arial, sans-serif;
+    font-size: 12pt;
     margin: 1 0 0;
-    padding: 0;
-    background-color: #f4f4f4;
+
+    background-color: rgb(244, 244, 244);
     text-align: center;
 }
+
 a {
     text-decoration: none;
     color: black;
@@ -17,22 +19,42 @@ a {
     box-sizing: border-box;
     padding: 10px;
     background-color: #6986ac;
-    max-width: 50em;
-    margin: 1em auto; /* Ceneters navbar elements */ 
+    max-width: 55em;
+    margin: 1.5em auto; /* Ceneters navbar elements */ 
     border-radius: 1em;
+
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    left: 0;
+    right: 0;
+    width: 100%; /* Full width */
 }
+
+.square {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6.5em;
+    background: linear-gradient(rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0.4));
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
 
 .name {
     flex: 0 0 auto;
     margin-right: auto; /* Pushes the links div to the center */
     margin-left: 1em;
     margin-right: 1em;
+    font-size: 14pt;
 }
 
 .links {
     display: flex;
     justify-content: center;
     gap: 10px; /* Adjusts the space between each link */
+    margin: auto 1em;
+    font-size: 14pt;
 }
 
 .links a {
@@ -42,3 +64,22 @@ a {
     display: inline-block;
 }
 
+.main_content{
+    padding-top: 8em;
+}
+
+@media (max-width: 715px) {
+    /* Place your CSS for screens that are 715px wide or less here */
+
+    /* Example: stack the navbar items instead of having them side by side */
+    .navbar .links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Other layout changes */
+    .some-other-class {
+        /* Changes to this class at 715px or below */
+    }
+    /* Continue with other classes and modifications as needed */
+}
