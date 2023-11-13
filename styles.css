@@ -30,6 +30,13 @@ a {
     width: 100%; /* Full width */
 }
 
+.top-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
 .square {
     position: fixed;
     top: 0;
@@ -68,18 +75,40 @@ a {
     padding-top: 8em;
 }
 
-@media (max-width: 715px) {
-    /* Place your CSS for screens that are 715px wide or less here */
-
-    /* Example: stack the navbar items instead of having them side by side */
-    .navbar .links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Other layout changes */
-    .some-other-class {
-        /* Changes to this class at 715px or below */
-    }
-    /* Continue with other classes and modifications as needed */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 24pt;
 }
+
+@media (max-width: 715px) {
+    .hamburger-menu {
+        display: block;
+        margin-left: 10px;
+    }
+
+    .name{  
+        margin-left: 2em;
+    }
+
+    .navbar{
+        flex-direction: column; /* Stack the top-nav and links vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .navbar .links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        overflow: hidden;
+        max-height: 0; /* Initial state, menu is closed */
+        transition: max-height 0.5s ease-out; /* Smooth transition for max-height */
+    }
+
+    .navbar.active .links {
+        max-height: 500px; /* Adjust this based on the total height of your links */
+    }
+}
+
