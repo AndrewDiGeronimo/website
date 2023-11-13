@@ -78,7 +78,7 @@ a {
 .hamburger-menu {
     display: none;
     cursor: pointer;
-    font-size: 24pt;
+    font-size: 28pt;
 }
 
 @media (max-width: 715px) {
@@ -89,6 +89,7 @@ a {
 
     .name{  
         margin-left: 2em;
+        font-size: 20px;
     }
 
     .navbar{
