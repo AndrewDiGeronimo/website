@@ -2,14 +2,15 @@ body {
     font-family: Arial, sans-serif;
     font-size: 12pt;
     margin: 1 0 0;
-
-    background-color: rgb(244, 244, 244);
+    background-color: var(--background-color);
+    color: var(--text-color);
     text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: inherit;
 }
 /* Navbar styles */
 .navbar {
@@ -18,7 +19,8 @@ a {
     justify-content: space-between;
     box-sizing: border-box;
     padding: 12px;
-    background-color: #6986ac;
+    background-color: var(--nav-color);
+    transition: var(--nav-color) 0.5s ease, color 0.5s ease;
     max-width: 55em;
     margin: 2.5em auto; /* Ceneters navbar elements */ 
     border-radius: 1em;
@@ -43,7 +45,7 @@ a {
     left: 0;
     right: 0;
     height: 8em;
-    background: linear-gradient(rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0.2));
+    background: var(--blur-color);
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px);
   }
@@ -66,13 +68,52 @@ a {
 
 .links a {
     text-decoration: none;
-    color: black;
+    color: var(--text-color);
+    transition: var(--text-color) 0.5s ease, color 0.5s ease;
     padding: 10px 20px;
     display: inline-block;
 }
 
 .main_content{
     padding-top: 10em;
+}
+
+.btn-dark-mode {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    line-height: 0;
+    background-color: var(--nav-color);
+    cursor: pointer;
+}
+
+.bi-moon, .bi-sun {
+    font-size: 30px;
+    color: white;
+}
+
+:root {
+    /* Light theme colors */
+    --background-color: rgb(244, 244, 244);
+    --text-color: black;
+
+    --nav-color: #6986ac;
+    transition: --nav-color 0.3s ease, color 0.3s ease;
+
+    --blur-color: linear-gradient(rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0.2));
+}
+
+[data-theme="dark"] {
+    /* Dark theme colors */
+    --background-color: rgb(29, 29, 31);
+    --text-color: white;
+
+    --nav-color: #34577e;
+
+    --blur-color: linear-gradient(rgba(29, 29, 31, 0.9), rgba(29, 29, 31, 0.2));
 }
 
 @media (max-width: 715px) {
