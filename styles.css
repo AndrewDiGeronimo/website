@@ -75,16 +75,36 @@ a {
     padding-top: 10em;
 }
 
-.hamburger-menu {
-    display: none;
-    cursor: pointer;
-    font-size: 30pt;
-}
-
 @media (max-width: 715px) {
+
     .hamburger-menu {
         display: block;
-        margin-left: 10px;
+        cursor: pointer;
+        position: relative;
+        margin-left: 16px;
+        margin-top: 0.5em;
+    }
+
+    .hamburger-menu span {
+        display: block;
+        width: 32px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background: black;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .hamburger-menu.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger-menu.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 
     .name{  
@@ -95,6 +115,7 @@ a {
     .navbar{
         flex-direction: column; /* Stack the top-nav and links vertically */
         align-items: flex-start; /* Align items to the start */
+        padding: 1em;
     }
 
     .links a{
@@ -115,13 +136,13 @@ a {
     }
 
     .navbar.active .links {
-        max-height: 500px; /* Adjust this based on the total height of your links */
+        max-height: 300px; /* Adjust this based on the total height of your links */
     }
 
     .navbar.active .links a {
-        padding: 15px 20px; /* Spacing inside each link */
-        margin: 5px 0; /* Space between links */
-        display: block; /* Full-width links */
+        padding: 15px 20px;
+        margin: 5px 0; 
+        display: block; 
     }
 }
 
