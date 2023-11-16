@@ -103,19 +103,16 @@ footer {
     text-align: center;
 }
 
-.footer-content {
+.social-links {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    margin-top: 10px; /* Adjust as needed for spacing */
 }
 
-.bi-linkedin {
-    font-size: 20px;
-}
-
-.bi-github {
-    font-size: 20px;
+.bi-linkedin, .bi-github {
+    font-size: 28px;
+    margin-left: 1em;
 }
 
 :root {
