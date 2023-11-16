@@ -26,10 +26,10 @@ a {
     border-radius: 1em;
 
     position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
+    top: 0; 
     left: 0;
     right: 0;
-    width: 100%; /* Full width */
+    width: 100%;
 }
 
 .top-nav {
@@ -76,6 +76,7 @@ a {
 
 .main_content{
     padding-top: 10em;
+    padding-bottom: 2em;
 }
 
 .btn-dark-mode {
@@ -95,6 +96,27 @@ a {
     color: white;
 }
 
+footer {
+    border-top: 1px solid var(--footer-color); /* gray line */
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.bi-linkedin {
+    font-size: 20px;
+}
+
+.bi-github {
+    font-size: 20px;
+}
+
 :root {
     /* Light theme colors */
     --background-color: rgb(244, 244, 244);
@@ -104,6 +126,8 @@ a {
     transition: --nav-color 0.3s ease, color 0.3s ease;
 
     --blur-color: linear-gradient(rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0.2));
+
+    --footer-color: #d3d3d3;
 }
 
 [data-theme="dark"] {
@@ -114,6 +138,8 @@ a {
     --nav-color: #34577e;
 
     --blur-color: linear-gradient(rgba(29, 29, 31, 0.9), rgba(29, 29, 31, 0.2));
+
+    --footer-color: rgb(53, 53, 55);
 }
 
 @media (max-width: 715px) {
@@ -177,7 +203,7 @@ a {
     }
 
     .navbar.active .links {
-        max-height: 300px; /* Adjust this based on the total height of your links */
+        max-height: 300px;
     }
 
     .navbar.active .links a {
