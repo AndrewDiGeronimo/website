@@ -50,19 +50,28 @@ a {
     -webkit-backdrop-filter: blur(1px);
   }
 
-.name {
+  .name {
     flex: 0 0 auto;
-    margin-right: auto; /* Pushes the links div to the center */
+    margin-right: auto;
     margin-left: 1em;
     margin-right: 1em;
     font-size: 14pt;
+    transition: transform 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s; /* Smooth transition for transform and font-size */
+}
+
+.name:hover {
+    transform: scale(1.20) translateY(-4px) translateX(6px); /* Scale the text and move it upwards */
+    transition: transform 0.2s, background-color 0.2s, border-radius 0.2s;
+    background-color: var(--hover-color); /* Slightly brighten the background */
+    border-radius: 1em;
+    box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
 }
 
 .links {
     display: flex;
     justify-content: center;
     gap: 10px; /* Adjusts the space between each link */
-    margin: auto 1em;
+    margin: auto 0.3em;
     font-size: 14pt;
 }
 
@@ -112,7 +121,7 @@ footer {
 
 .bi-linkedin, .bi-github {
     font-size: 28px;
-    margin-left: 1em;
+    margin: 1em;
 }
 
 :root {
@@ -120,10 +129,11 @@ footer {
     --background-color: rgb(244, 244, 244);
     --text-color: black;
 
+    /* Nav Styling */
     --nav-color: #6986ac;
-    transition: --nav-color 0.3s ease, color 0.3s ease;
-
     --blur-color: linear-gradient(rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0.2));
+    --hover-color: rgba(255, 255, 255, 0.23);
+    --hover-blur: rgba(255, 255, 255, 0.6);
 
     --footer-color: #d3d3d3;
 }
@@ -133,9 +143,12 @@ footer {
     --background-color: rgb(29, 29, 31);
     --text-color: white;
 
+    /* Nav Styling */
     --nav-color: #34577e;
 
     --blur-color: linear-gradient(rgba(29, 29, 31, 0.9), rgba(29, 29, 31, 0.2));
+    --hover-color: rgba(0, 0, 0, 0.23);
+    --hover-blur: rgba(0, 0, 0, 0.6);
 
     --footer-color: rgb(53, 53, 55);
 }
