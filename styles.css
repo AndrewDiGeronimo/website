@@ -72,6 +72,26 @@ a {
     transition: color 0.5s, transform 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
     padding: 10px 20px;
     display: inline-block;
+    position: relative; /* Needed for the absolute positioning of pseudo-elements */
+    border-radius: 0.2em; /* Rounded corners */
+    transform-origin: center;
+}
+
+/*adjusts hover effect size*/
+.links a::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 0.4em; /* Ensure it matches the border radius of the link */
+    background-color: var(--hover-color); /* Slightly brighten the background */
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 8px var(--hover-blur); /* Adjusted blur effect */
+    z-index: -1; /* Ensure it doesn't block interaction with the link */
+    pointer-events: none;
 }
 
 .main_content{
@@ -193,6 +213,21 @@ footer {
         margin-left: 0px;
     }
 
+    .links a::after {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        border-radius: 0.4em; /* Ensure it matches the border radius of the link */
+        background-color: var(--hover-color); /* Slightly brighten the background */
+        opacity: 0; /* Start fully transparent */
+        transition: opacity 0.2s, box-shadow 0.2s;
+        box-shadow: 0 0 8px var(--hover-blur); /* Adjusted blur effect */
+        z-index: -1; /* Ensure it doesn't block interaction with the link */
+    }
+
     .navbar .links {
         display: flex;
         flex-direction: column;
@@ -216,6 +251,7 @@ footer {
     }
 }
 
+/*Hover effects for cursor devices only*/
 @media (hover: hover) {
     .hamburger-menu:hover {
         display: block;
@@ -230,7 +266,7 @@ footer {
         border-radius: 1em;
         box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
     }
-    
+
     .name:hover {
         transform: scale(1.20) translateY(-4px) translateX(6px); /* Scale the text and move it upwards */
         transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
@@ -238,13 +274,17 @@ footer {
         border-radius: 1em;
         box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
     }
-
     .links a:hover {
         transform: scale(1.20) translateY(-4px) translateX(2px); /* Scale the text and move it upwards */
+        transition: transform 0.2s;
+    }
+
+    .links a:hover::after {
         transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
         background-color: var(--hover-color); /* Slightly brighten the background */
         border-radius: 0.2em;
         box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
+        opacity: 1; /* Make the pseudo-element visible on hover */
     }
 }
 
