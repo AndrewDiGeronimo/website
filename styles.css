@@ -58,14 +58,6 @@ a {
     transition: transform 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s; /* Smooth transition for transform and font-size */
 }
 
-.name:hover {
-    transform: scale(1.20) translateY(-4px) translateX(6px); /* Scale the text and move it upwards */
-    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
-    background-color: var(--hover-color); /* Slightly brighten the background */
-    border-radius: 1em;
-    box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
-}
-
 .links {
     display: flex;
     justify-content: center;
@@ -80,14 +72,6 @@ a {
     transition: color 0.5s, transform 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
     padding: 10px 20px;
     display: inline-block;
-}
-
-.links a:hover {
-    transform: scale(1.20) translateY(-4px) translateX(2px); /* Scale the text and move it upwards */
-    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
-    background-color: var(--hover-color); /* Slightly brighten the background */
-    border-radius: 0.2em;
-    box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
 }
 
 .main_content{
@@ -171,20 +155,6 @@ footer {
         transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
     }
 
-    .hamburger-menu:hover {
-        display: block;
-        cursor: pointer;
-        position: relative;
-        margin-left: 16px;
-        margin-top: 0.5em;
-
-        transform: scale(1.25);
-        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
-        background-color: var(--hover-color); /* Slightly brighten the background */
-        border-radius: 1em;
-        box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
-    }
-
     .hamburger-menu span {
         display: block;
         width: 32px;
@@ -243,6 +213,38 @@ footer {
         padding: 15px 20px;
         margin: 5px 0; 
         display: block; 
+    }
+}
+
+@media (hover: hover) {
+    .hamburger-menu:hover {
+        display: block;
+        cursor: pointer;
+        position: relative;
+        margin-left: 16px;
+        margin-top: 0.5em;
+
+        transform: scale(1.25);
+        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
+        background-color: var(--hover-color); /* Slightly brighten the background */
+        border-radius: 1em;
+        box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
+    }
+    
+    .name:hover {
+        transform: scale(1.20) translateY(-4px) translateX(6px); /* Scale the text and move it upwards */
+        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
+        background-color: var(--hover-color); /* Slightly brighten the background */
+        border-radius: 1em;
+        box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
+    }
+
+    .links a:hover {
+        transform: scale(1.20) translateY(-4px) translateX(2px); /* Scale the text and move it upwards */
+        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
+        background-color: var(--hover-color); /* Slightly brighten the background */
+        border-radius: 0.2em;
+        box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
     }
 }
 
