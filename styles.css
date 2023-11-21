@@ -179,7 +179,7 @@ footer {
         position: relative;
         margin-left: 16px;
         margin-top: 0.5em;
-        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
+        transition: transform 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
     }
 
     .hamburger-menu span {
@@ -274,6 +274,10 @@ footer {
         box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
     }
 
+    .hamburger-menu:active{
+        transform: scale(0.75);
+    }
+
     .name:hover {
         transform: scale(1.20) translateY(-4px) translateX(6px); /* Scale the text and move it upwards */
         transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
@@ -297,6 +301,10 @@ footer {
     .btn-dark-mode:hover {
         transform: scale(1.25);
         transition: transform 0.2s;
+    }
+    
+    .btn-dark-mode:active{
+        transform: scale(0.75);
     }
     
     .social-links a:hover {
