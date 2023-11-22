@@ -21,7 +21,7 @@ a {
     padding: 12px;
     background-color: var(--nav-color);
     transition: var(--nav-color) 0.5s ease, color 0.5s ease;
-    max-width: 55em;
+    max-width: 80em;
     margin: 2.5em auto; /* Ceneters navbar elements */ 
     border-radius: 1em;
 
@@ -54,16 +54,17 @@ a {
     flex: 0 0 auto;
     margin-left: 1em;
     margin-right: auto 1em;
-    font-size: 14pt;
+    font-size: 16pt;
     transition: transform 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s; /* Smooth transition for transform and font-size */
 }
 
 .links {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Adjusts the space between each link */
-    margin: auto 0.3em;
-    font-size: 14pt;
+    gap: 40px; /* Adjusts the space between each link */
+    margin: auto 1em;
+    font-size: 16pt;
+    transition: all 0.2s;
 }
 
 .links a {
@@ -171,7 +172,15 @@ footer {
     --footer-color: rgb(53, 53, 55);
 }
 
-@media (max-width: 715px) {
+@media (max-width: 875px) {
+    .links {
+      gap: 5px; /* Adjusts the space between each link for smaller screens */
+      margin: auto 0.3em;
+      transition: all 0.2s;
+    }
+  }
+
+@media (max-width: 725px) {
 
     .hamburger-menu {
         display: block;
