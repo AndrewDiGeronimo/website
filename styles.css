@@ -194,11 +194,7 @@ footer {
     body {
         font-size: 12pt;
     }
-
-    .navbar{
-        top: 13px; /* Fixes vertical nav shift on resize */
-    }
-
+    
     .hamburger-menu {
         display: block;
         cursor: pointer;
