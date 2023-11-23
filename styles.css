@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    font-size: 12pt;
+    font-size: 16pt;
     margin: 1 0 0;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -96,8 +96,10 @@ a {
 }
 
 .main_content{
-    padding-top: 10em;
-    padding-bottom: 2em;
+    padding-top: 10em; /* Adjust as needed */
+    padding-bottom: 2em; /* Adjust as needed */
+    max-width: 80em; /* Same as the navbar */
+    margin: 0 auto; /* Centers the main content */
 }
 
 .btn-dark-mode {
@@ -172,7 +174,15 @@ footer {
     --footer-color: rgb(53, 53, 55);
 }
 
-@media (max-width: 875px) {
+@media (max-width: 1024px) {
+    body {
+        font-size: 14pt;
+    }
+
+    .navbar{
+        top: 6px; /* Fixes vertical nav shift on resize */
+    }
+
     .links {
       gap: 5px; /* Adjusts the space between each link for smaller screens */
       margin: auto 0.3em;
@@ -181,6 +191,13 @@ footer {
   }
 
 @media (max-width: 725px) {
+    body {
+        font-size: 12pt;
+    }
+
+    .navbar{
+        top: 13px; /* Fixes vertical nav shift on resize */
+    }
 
     .hamburger-menu {
         display: block;
