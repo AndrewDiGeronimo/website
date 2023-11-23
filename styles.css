@@ -181,6 +181,7 @@ footer {
 
     .navbar{
         top: 6px; /* Fixes vertical nav shift on resize */
+        transition: all 0.2s;
     }
 
     .links {
@@ -194,7 +195,11 @@ footer {
     body {
         font-size: 12pt;
     }
-    
+
+    .navbar{
+        top: -12px; /* Higher touch target for mobile */
+    }
+
     .hamburger-menu {
         display: block;
         cursor: pointer;
