@@ -12,6 +12,7 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
 /* Navbar styles */
 .navbar {
     display: flex;
@@ -39,6 +40,7 @@ a {
     width: 100%;
 }
 
+/*Nav blur Effect*/
 .nav-blur {
     position: fixed;
     top: 0;
@@ -50,7 +52,8 @@ a {
     -webkit-backdrop-filter: blur(1px);
   }
 
-  .name {
+/*Name Styling*/
+.name {
     flex: 0 0 auto;
     margin-left: 1em;
     margin-right: auto 1em;
@@ -58,6 +61,7 @@ a {
     transition: transform 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s; /* Smooth transition for transform and font-size */
 }
 
+/*All Nav Links*/
 .nav-links {
     display: flex;
     justify-content: center;
@@ -67,6 +71,7 @@ a {
     transition: all 0.2s;
 }
 
+/*Individual Nav Link Styling*/
 .nav-links a {
     text-decoration: none;
     color: var(--text-color);
@@ -97,9 +102,22 @@ a {
 
 /* Underline Current Page */
 .nav-links .current-page {
-    text-decoration: underline;
+    display: inline-block; 
 }
 
+.nav-links .current-page::before {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center the pseudo-element */
+    bottom: 5px; /* Position below the link */
+    transform: translateX(-50%); /* Center align the pseudo-element */
+    width: 50px; /* Width of the circular line */
+    height: 3px; /* Height/thickness of the line */
+    background-color: var(--text-color); /* Color of the line */
+    border-radius: 15px; /* Creates the circular effect */
+}
+
+/* Main Content Styling */
 .main_content{
     padding-top: 10em; /* Adjust as needed */
     padding-bottom: 2em; /* Adjust as needed */
@@ -107,6 +125,7 @@ a {
     margin: 0 auto; /* Centers the main content */
 }
 
+/*Dark Mode Button*/
 .btn-dark-mode {
     position: fixed;
     bottom: 30px;
@@ -120,6 +139,7 @@ a {
     transition: transform 0.5s, bottom 0.3s;
 }
 
+/*Dark Mode Button Icons*/
 .bi-moon, .bi-sun {
     font-size: 30px;
     color: white;
@@ -132,6 +152,7 @@ footer {
     text-align: center;
 }
 
+/*Social Styling*/
 .social-links {
     display: flex;
     justify-content: center;
@@ -145,11 +166,13 @@ footer {
     cursor: pointer;
 }
 
+/*Social Icons*/
 .bi-linkedin, .bi-github {
     font-size: 28px;
     margin: 0.5em;
 }
 
+/*System Dark Mode Prefferences*/
 :root {
     /* Light theme colors */
     --background-color: rgb(244, 244, 244);
