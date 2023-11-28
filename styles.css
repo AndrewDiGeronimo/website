@@ -58,7 +58,7 @@ a {
     transition: transform 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s; /* Smooth transition for transform and font-size */
 }
 
-.links {
+.nav-links {
     display: flex;
     justify-content: center;
     gap: 40px; /* Adjusts the space between each link */
@@ -67,7 +67,7 @@ a {
     transition: all 0.2s;
 }
 
-.links a {
+.nav-links a {
     text-decoration: none;
     color: var(--text-color);
     transition: color 0.5s, transform 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
@@ -79,7 +79,7 @@ a {
 }
 
 /*adjusts hover effect size*/
-.links a::after {
+.nav-links a::after {
     content: '';
     position: absolute;
     top: 5px;
@@ -93,6 +93,11 @@ a {
     box-shadow: 0 0 8px var(--hover-blur); /* Adjusted blur effect */
     z-index: -1; /* Ensure it doesn't block interaction with the link */
     pointer-events: none;
+}
+
+/* Underline Current Page */
+.nav-links .current-page {
+    text-decoration: underline;
 }
 
 .main_content{
@@ -112,7 +117,7 @@ a {
     line-height: 0;
     background-color: var(--nav-color);
     cursor: pointer;
-    transition: transform 0.5s
+    transition: transform 0.5s, bottom 0.3s;
 }
 
 .bi-moon, .bi-sun {
@@ -183,7 +188,7 @@ footer {
         top: 6px; /* Fixes vertical nav shift on resize */
     }
 
-    .links {
+    .nav-links {
       gap: 5px; /* Adjusts the space between each link for smaller screens */
       margin: auto 0.3em;
       transition: all 0.2s;
@@ -197,6 +202,7 @@ footer {
 
     .navbar{
         top: -12px; /* Higher touch target for mobile */
+        transition: top 0.2s;
     }
 
     .hamburger-menu {
@@ -241,12 +247,12 @@ footer {
         padding: 1em;
     }
 
-    .links a{
+    .nav-links a{
         padding-top: 1em;
         margin-left: 0px;
     }
 
-    .links a::after {
+    .nav-links a::after {
         content: '';
         position: absolute;
         top: 12px;
@@ -261,7 +267,7 @@ footer {
         z-index: -1; /* Ensure it doesn't block interaction with the link */
     }
 
-    .navbar .links {
+    .navbar .nav-links {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -273,11 +279,11 @@ footer {
         transition: max-height 0.35s ease-out; /* Smooth transition for max-height */
     }
 
-    .navbar.active .links {
+    .navbar.active .nav-links {
         max-height: 300px;
     }
 
-    .navbar.active .links a {
+    .navbar.active .nav-links a {
         padding: 15px 20px;
         margin: 5px 0; 
         display: block; 
@@ -311,12 +317,12 @@ footer {
         border-radius: 1em;
         box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
     }
-    .links a:hover {
+    .nav-links a:hover {
         transform: scale(1.20) translateY(-4px) translateX(2px); /* Scale the text and move it upwards */
         transition: transform 0.2s;
     }
 
-    .links a:hover::after {
+    .nav-links a:hover::after {
         transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
         background-color: var(--hover-color); /* Slightly brighten the background */
         border-radius: 0.2em;
