@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Rethink Sans', Arial, sans-serif;
     font-size: 16pt;
     margin: 1 0 0;
     background-color: var(--background-color);
@@ -230,6 +230,9 @@ footer {
       gap: 5px; /* Adjusts the space between each link for smaller screens */
       margin: auto 0.3em;
       transition: all 0.2s;
+    }
+    .nav-links a::after {
+        transform: scale(0.85);
     }
   }
 
