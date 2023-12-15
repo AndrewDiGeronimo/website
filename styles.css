@@ -56,6 +56,13 @@ a {
     -webkit-backdrop-filter: blur(1.2px);
   }
 
+/* Hidden - For transition purposes */
+  .hamburger-menu {
+    margin-left: 0;
+
+    transition: margin-left 0.2s;
+  }
+
 /*Name Styling*/
 .name {
     flex: 0 0 auto;
@@ -63,7 +70,7 @@ a {
     margin-right: auto 1em;
     font-size: 16pt;
 
-    transition: transform 0.5s, color 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s; /* Smooth transition for transform and font-size */
+    transition: transform 0.5s, color 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s; /* Smooth transition for transform and font-size */
 }
 
 /*All Nav Links*/
@@ -74,7 +81,7 @@ a {
     margin: auto 1em;
     font-size: 16pt;
 
-    transition: all 0.2s; /*Page Resize Animation Speed*/
+    transition: margin 0.3s ease, gap 0.3s ease; /*Page Resize Animation Speed*/
 }
 
 /*Individual Nav Link Styling*/
@@ -133,6 +140,7 @@ a {
     margin: 0 auto; /* Centers the main content */
 
     transition: color 0.5s;
+    animation: fadeIn 1s;
 }
 
 /*Dark Mode Button*/
@@ -184,17 +192,17 @@ footer {
     margin: 0.5em;
 }
 
-/*System Dark Mode Prefferences*/
+/*System Theme Prefferences*/
 :root {
     /* Light theme colors */
-    --background-color: rgb(244, 244, 244);
+    --background-color: rgb(229, 237, 240);
     --text-color: black;
 
     /* Nav Styling */
     --nav-color: #6986ac9d;
     --nav-color-hover:#6986ac;
 
-    --blur-color: linear-gradient(rgba(244, 244, 244, 1), rgba(244, 244, 244, 0.3));
+    --blur-color: linear-gradient(rgba(229, 237, 240, 1), rgba(229, 237, 240, 0.3));
     --hover-color: rgba(255, 255, 255, 0.23);
     --hover-blur: rgba(255, 255, 255, 0.6);
 
@@ -229,7 +237,7 @@ footer {
     .nav-links {
       gap: 5px; /* Adjusts the space between each link for smaller screens */
       margin: auto 0.3em;
-      transition: all 0.2s;
+      transition: margin 0.3s ease, gap 0.3s ease;
     }
     .nav-links a::after {
         transform: scale(0.85);
@@ -244,7 +252,9 @@ footer {
     .navbar{
         background-color: var(--nav-color-hover);
         top: -12px; /* Higher touch target for mobile */
-        transition: top 0.2s;
+
+        /*Reposition on resize + Theme Shift*/
+        transition: top 0.2s, background-color 0.5s;
     }
 
     .hamburger-menu {
@@ -253,7 +263,6 @@ footer {
         position: relative;
         margin-left: 16px;
         margin-top: 0.5em;
-        transition: transform 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
     }
 
     .hamburger-menu span {
@@ -304,9 +313,10 @@ footer {
         border-radius: 0.4em; /* Ensure it matches the border radius of the link */
         background-color: var(--hover-color); /* Slightly brighten the background */
         opacity: 0; /* Start fully transparent */
-        transition: opacity 0.2s, box-shadow 0.2s;
         box-shadow: 0 0 8px var(--hover-blur); /* Adjusted blur effect */
         z-index: -1; /* Ensure it doesn't block interaction with the link */
+
+        transition: opacity 0.2s, box-shadow 0.2s;
     }
 
     .navbar .nav-links {
@@ -315,14 +325,23 @@ footer {
         align-items: flex-start;
         width: 100%;
         margin-left: 0px;
+        opacity: 0;
 
         overflow: hidden;
         max-height: 0; /* Initial state, menu is closed */
-        transition: max-height 0.25s ease; /* Smooth transition for max-height */
+
+        transition: max-height 0.3s ease; /* Smooth transition for max-height */
+        
+    }
+
+    .navbar.active{
+        animation: bounceOpen 0.5s ease;
+        transform-origin: top;
     }
 
     .navbar.active .nav-links {
         max-height: 300px;
+        opacity: 1;
     }
 
     .navbar.active .nav-links a {
@@ -337,6 +356,7 @@ footer {
     
     .navbar:hover{
         background-color: var(--nav-color-hover);
+
         transition: background-color 0.2s ease;
     }
 
@@ -348,10 +368,11 @@ footer {
         margin-top: 0.5em;
 
         transform: scale(1.25);
-        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
         background-color: var(--hover-color); /* Slightly brighten the background */
         border-radius: 1em;
         box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
+
+        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
     }
 
     .hamburger-menu:active{
@@ -360,26 +381,30 @@ footer {
 
     .name:hover {
         transform: scale(1.20) translateY(-4px) translateX(6px); /* Scale the text and move it upwards */
-        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
         background-color: var(--hover-color); /* Slightly brighten the background */
         border-radius: 1em;
         box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
+
+        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
     }
     .nav-links a:hover {
         transform: scale(1.20) translateY(-4px) translateX(2px); /* Scale the text and move it upwards */
+
         transition: transform 0.2s;
     }
 
     .nav-links a:hover::after {
-        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
         background-color: var(--hover-color); /* Slightly brighten the background */
         border-radius: 0.2em;
         box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
         opacity: 1; /* Make the pseudo-element visible on hover */
+
+        transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s;
     }
 
     .btn-dark-mode:hover {
         transform: scale(1.25);
+
         transition: transform 0.2s;
     }
     
@@ -389,10 +414,20 @@ footer {
     
     .social-links a:hover {
         transform: scale(1.25) translateY(-4px); /* Scales up the link (and thus the icon) */
-        transition: transform 0.2s;
         border-radius: 0.5em;
         background-color: var(--hover-color); /* Slightly brighten the background */
         box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
+
+        transition: transform 0.2s;
     }
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+@keyframes bounceOpen {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.1); } /* Overextend */
+}
