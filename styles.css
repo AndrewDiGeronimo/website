@@ -23,7 +23,7 @@ a {
     padding: 12px;
     background-color: var(--nav-color);
     max-width: 80em;
-    margin: 2.5em auto; /* Ceneters navbar elements */ 
+    margin: 2.5em auto; /* Centers navbar elements */ 
     border-radius: 1em;
     border-color: var(--nav-color);
     border-style: solid;
@@ -51,7 +51,7 @@ a {
     left: 0;
     right: 0;
     height: 8em;
-    background: var(--blur-color);
+    background-image: var(--blur-color);
     backdrop-filter: blur(1.2px);
     -webkit-backdrop-filter: blur(1.2px);
   }
@@ -130,6 +130,8 @@ a {
     height: 3px; /* Height/thickness of the line */
     background-color: var(--text-color); /* Color of the line */
     border-radius: 15px; /* Creates the circular effect */
+
+    transition: background-color 0.5s;
 }
 
 /* Main Content Styling */
@@ -166,7 +168,7 @@ a {
 
 footer {
     position: relative;
-    border-top: 1px solid var(--footer-color); /* gray line */
+    border-top: 2px solid var(--footer-color); /* gray line */
     padding: 20px;
     text-align: center;
 }
@@ -348,6 +350,10 @@ footer {
         padding: 15px 20px;
         margin: 5px 0; 
         display: block; 
+    }
+
+    .btn-dark-mode{
+        transition: bottom 0s;
     }
 }
 
