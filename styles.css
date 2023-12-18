@@ -163,7 +163,7 @@ a {
 /*Dark Mode Button Icons*/
 .bi-moon, .bi-sun {
     font-size: 36px;
-    color: white;
+    color: var(--text-color);
 }
 
 footer {
@@ -273,7 +273,7 @@ footer {
         height: 4px;
         margin-bottom: 5px;
         position: relative;
-        background: black;
+        background: var(--text-color);
         transition: all 0.3s ease-in-out;
     }
     

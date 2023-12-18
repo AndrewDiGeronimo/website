@@ -32,22 +32,31 @@ document.addEventListener('DOMContentLoaded', function () {
         darkModeIcon.className = theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
     }
 
-    //Dynamically adjust darkmode button by position
     function adjustDarkModeButton() {
         const footerRect = footer.getBoundingClientRect();
         const fromBottom = window.innerHeight - footerRect.top;
         const footerVisible = fromBottom > 20 && fromBottom < window.innerHeight;
-
+    
         if (footerVisible) {
-            // Move button above the footer
             const newPositionAboveFooter = window.innerHeight - footerRect.top + 10;
             darkModeToggle.style.bottom = `${newPositionAboveFooter}px`;
         } else {
-            // Keep button at its original fixed position
             darkModeToggle.style.bottom = '30px';
         }
     }
 
+    //Dynamically adjust darkmode button by position
+    let ticking = false;
+    window.addEventListener('scroll', function(e) {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                adjustDarkModeButton();
+                ticking = false;
+            });
+    
+            ticking = true;
+        }
+    });
     window.addEventListener('scroll', adjustDarkModeButton);
     adjustDarkModeButton(); // Adjust button position on load
 });
