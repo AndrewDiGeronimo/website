@@ -17,6 +17,7 @@ a {
 /* Navbar styles */
 .navbar {
     display: flex;
+    z-index: 10;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
@@ -42,11 +43,13 @@ a {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+    z-index: 10;
 }
 
 /*Nav blur Effect*/
 .nav-blur {
     position: fixed;
+    z-index: 5;
     top: 0;
     left: 0;
     right: 0;
@@ -140,6 +143,7 @@ a {
     padding-bottom: 2em; /* Adjust as needed */
     max-width: 80em; /* Same as the navbar */
     margin: 0 auto; /* Centers the main content */
+    z-index: 1;
 
     transition: color 0.5s;
     animation: fadeIn 1s;
