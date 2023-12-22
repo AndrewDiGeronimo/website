@@ -54,9 +54,11 @@ a {
     left: 0;
     right: 0;
     height: 8em;
-    background-image: var(--blur-color);
+    background-image: linear-gradient(var(--blurColor1), var(--blurColor2));
     backdrop-filter: blur(1.2px);
     -webkit-backdrop-filter: blur(1.2px);
+
+    transition: --blurColor1 0.5s, --blurColor2 0.5s;
   }
 
 /* Hidden - For transition purposes */
@@ -223,12 +225,16 @@ footer {
     /* Nav Styling */
     --nav-color: #34577eab;
     --nav-color-hover:#34577e;
-
-    --blur-color: linear-gradient(rgba(29, 29, 31, 1), rgba(29, 29, 31, 0.3));
     --hover-color: rgba(0, 0, 0, 0.23);
     --hover-blur: rgba(0, 0, 0, 0.6);
 
     --footer-color: rgb(53, 53, 55);
+
+/*nav-blur gradient transition*/
+    .nav-blur {
+        --blurColor1: rgba(29, 29, 31, 1);
+        --blurColor2: rgba(29, 29, 31, 0.3);
+      }
 }
 
 @media (max-width: 1024px) {
@@ -269,6 +275,8 @@ footer {
         position: relative;
         margin-left: 16px;
         margin-top: 0.5em;
+
+        transition: all 0.5s;
     }
 
     .hamburger-menu span {
@@ -357,7 +365,7 @@ footer {
     }
 
     .btn-dark-mode{
-        transition: bottom 0s;
+        transition: transform 0.5s, bottom 0s;
     }
 }
 
@@ -441,3 +449,15 @@ footer {
     0%, 100% { transform: scaleY(1); }
     50% { transform: scaleY(1.1); } /* Overextend */
 }
+
+@property --blurColor1 {
+    syntax: '<color>';
+    initial-value: rgba(229, 237, 240, 1);
+    inherits: false;
+  }
+  
+@property --blurColor2 {
+    syntax: '<color>';
+    initial-value: rgba(229, 237, 240, 0.3);
+    inherits: false;
+  }

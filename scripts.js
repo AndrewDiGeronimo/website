@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.setAttribute('data-theme', theme);
         darkModeIcon.className = theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
     }
-
+    
+    //Dynamically adjust darkmode button by position
     function adjustDarkModeButton() {
         const footerRect = footer.getBoundingClientRect();
         const fromBottom = window.innerHeight - footerRect.top;
@@ -45,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    //Dynamically adjust darkmode button by position
     let ticking = false;
     window.addEventListener('scroll', function(e) {
         if (!ticking) {
