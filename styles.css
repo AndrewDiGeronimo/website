@@ -29,7 +29,7 @@ a {
     border-color: var(--nav-color);
     border-style: solid;
 
-    transition: background-color 0.5s;
+    transition: background-color 0.5s, top 0.2s;
 
     position: fixed; /* Set the navbar to fixed position */
     top: 0; 
@@ -247,7 +247,7 @@ footer {
     }
 
     .nav-links {
-      gap: 5px; /* Adjusts the space between each link for smaller screens */
+      gap: 2px; /* Adjusts the space between each link for smaller screens */
       margin: auto 0.3em;
       transition: margin 0.3s ease, gap 0.3s ease;
     }
