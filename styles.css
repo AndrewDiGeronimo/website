@@ -177,6 +177,8 @@ footer {
     border-top: 2px solid var(--footer-color); /* gray line */
     padding: 20px;
     text-align: center;
+
+    transition: color 0.5s, border-color 0.5s;
 }
 
 /*Social Styling*/
