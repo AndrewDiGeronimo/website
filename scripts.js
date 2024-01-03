@@ -1,12 +1,25 @@
+// Saved Theme Preferences 
+document.addEventListener('DOMContentLoaded', function() {
+    const storedTheme = localStorage.getItem('theme');
+
+    if (document.body) {
+        setTheme(storedTheme);
+    }
+
+    function setTheme(theme) {
+        if (document.body) {
+            document.body.setAttribute('data-theme', theme);
+            darkModeIcon.className = theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
+        }
+    }
+});
+
 window.onload = function() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navbar = document.querySelector('.navbar');
-    const storedTheme = localStorage.getItem('theme');
     const darkModeToggle = document.getElementById('darkModeToggle');
     const darkModeIcon = document.getElementById('darkModeIcon');
     const footer = document.querySelector('footer');
-
-    setTheme(storedTheme);
 
     // Hamburger Menu
     hamburger.addEventListener('click', function () {
