@@ -1,38 +1,39 @@
-document.addEventListener('DOMContentLoaded', function () {
+window.onload = function() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navbar = document.querySelector('.navbar');
-
+    const storedTheme = localStorage.getItem('theme');
     const darkModeToggle = document.getElementById('darkModeToggle');
     const darkModeIcon = document.getElementById('darkModeIcon');
-
     const footer = document.querySelector('footer');
 
-    // Set initial theme based on system preference or saved preference
-    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme');
-    const theme = savedTheme ? savedTheme : (prefersDarkMode ? 'dark' : 'light');
-    setTheme(theme);
+    setTheme(storedTheme);
 
-    //Hamburger Menu
+    // Hamburger Menu
     hamburger.addEventListener('click', function () {
         hamburger.classList.toggle('active');
         navbar.classList.toggle('active');
     });
+    
 
-    //Dark Mode Toggle
+    // Dark Mode Toggle
     darkModeToggle.addEventListener('click', function () {
+        // Toggle the theme between 'dark' and 'light'
+        toggleTheme();
+    });
+
+    function toggleTheme() {
         const currentTheme = document.body.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
-    });
+    }
 
     function setTheme(theme) {
         document.body.setAttribute('data-theme', theme);
         darkModeIcon.className = theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
     }
     
-    //Dynamically adjust darkmode button by position
+    // Dynamically adjust dark mode button position
     function adjustDarkModeButton() {
         const footerRect = footer.getBoundingClientRect();
         const fromBottom = window.innerHeight - footerRect.top;
@@ -57,6 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
             ticking = true;
         }
     });
-    window.addEventListener('scroll', adjustDarkModeButton);
-    adjustDarkModeButton(); // Adjust button position on load
-});
+    window.addEventListener('resize', adjustDarkModeButton);
+    
+    // Adjust button position on page load
+    adjustDarkModeButton();
+};

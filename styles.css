@@ -1,7 +1,6 @@
 body {
     font-family: 'Rethink Sans', Arial, sans-serif;
     font-size: 16pt;
-    margin: 1 0 0;
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center;
@@ -29,7 +28,7 @@ a {
     border-color: var(--nav-color);
     border-style: solid;
 
-    transition: background-color 0.5s, top 0.2s;
+    transition: background-color 0.5s;
 
     position: fixed; /* Set the navbar to fixed position */
     top: 0; 
@@ -141,6 +140,7 @@ a {
 
 /* Main Content Styling */
 .main_content{
+    text-align: center;
     padding-top: 10em; /* Adjust as needed */
     padding-bottom: 2em; /* Adjust as needed */
     max-width: 80em; /* Same as the navbar */
@@ -176,9 +176,10 @@ footer {
     position: relative;
     border-top: 2px solid var(--footer-color); /* gray line */
     padding: 20px;
+    margin-top: 5em;
     text-align: center;
 
-    transition: color 0.5s, border-color 0.5s;
+    transition: border-color 0.5s;
 }
 
 /*Social Styling*/
@@ -201,6 +202,46 @@ footer {
     font-size: 28px;
     margin: 0.5em;
 }
+
+
+
+
+/*index styles*/
+.content-grid {
+    display: flex;
+    justify-content: center; /* Keeps the grid centered */
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    max-width: 800px; /* Adjust this value as needed */
+    margin-left: auto; /* Centering the grid horizontally */
+    margin-right: auto;
+}
+
+.portrait {
+    flex: 1; /* Takes up half the space in the flex container */
+    max-width: 50%; /* Maximum width set to 50% */
+    text-align: right; /* Aligns the image to the right */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.portrait img {
+    max-width: 100%;
+    max-height: 500px;
+    height: auto;
+    display: inline-block; /* Changes to inline-block for alignment */
+    border-radius: 10px;
+}
+
+.text-content {
+    flex: 1; /* Takes up the remaining half of the space */
+    max-width: 50%; /* Maximum width set to 50% */
+    text-align: center; /* Centers the text */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 
 /*System Theme Prefferences*/
 :root {
@@ -239,6 +280,10 @@ footer {
       }
 }
 
+
+
+
+/*Responsive Design*/
 @media (max-width: 1024px) {
     body {
         font-size: 14pt;
@@ -369,6 +414,23 @@ footer {
     .btn-dark-mode{
         transition: transform 0.5s, bottom 0s;
     }
+
+
+    /*index styles*/
+    .content-grid {
+        display: block; /* Stack items instead of flex */
+    }
+
+    .portrait img{
+        max-height: 350px;
+    }
+
+    .portrait, .text-content {
+        max-width: 100%; /* Allow each item to take full width */
+        text-align: center;
+
+        transition: flex 0.3s, padding 0.3s, max-width 0.3s;
+    }
 }
 
 /*Hover effects for cursor devices only*/
@@ -440,8 +502,12 @@ footer {
 
         transition: transform 0.2s;
     }
+    
 }
 
+
+
+/*Animations and Transitions*/
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
