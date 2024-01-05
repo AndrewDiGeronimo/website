@@ -22,7 +22,7 @@ a {
     box-sizing: border-box;
     padding: 12px;
     background-color: var(--nav-color);
-    max-width: 80em;
+    max-width: 60em;
     margin: 2.5em auto; /* Centers navbar elements */ 
     border-radius: 1em;
     border-color: var(--nav-color);
@@ -54,8 +54,8 @@ a {
     right: 0;
     height: 8em;
     background-image: linear-gradient(var(--blurColor1), var(--blurColor2));
-    backdrop-filter: blur(1.2px);
-    -webkit-backdrop-filter: blur(1.2px);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
 
     transition: --blurColor1 0.5s, --blurColor2 0.5s;
   }
@@ -141,10 +141,11 @@ a {
 /* Main Content Styling */
 .main_content{
     text-align: center;
-    padding-top: 10em; /* Adjust as needed */
-    padding-bottom: 2em; /* Adjust as needed */
-    max-width: 80em; /* Same as the navbar */
-    margin: 0 auto; /* Centers the main content */
+    padding-top: 10em;
+    padding-left: 3em;
+    padding-bottom: 2em; 
+    max-width: 55em; /* Max content width */
+    margin: auto; /* Centers the main content */
     z-index: 1;
 
     transition: color 0.5s;
@@ -175,11 +176,12 @@ a {
 footer {
     position: relative;
     border-top: 2px solid var(--footer-color); /* gray line */
+    max-width: 80em;
     padding: 20px;
-    margin-top: 5em;
+    margin: 5em auto;
     text-align: center;
 
-    transition: border-color 0.5s;
+    transition: color 0.5s, border-color 0.5s;
 }
 
 /*Social Styling*/
@@ -187,7 +189,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px; /* Adjust as needed for spacing */
+    margin-top: 10px;
 }
 
 .social-links a {
@@ -207,13 +209,13 @@ footer {
 
 
 /*index styles*/
-.content-grid {
+.index-content-grid {
     display: flex;
     justify-content: center; /* Keeps the grid centered */
     align-items: center;
     flex-wrap: wrap;
     margin-top: 20px;
-    max-width: 800px; /* Adjust this value as needed */
+    max-width: 800px; 
     margin-left: auto; /* Centering the grid horizontally */
     margin-right: auto;
 }
@@ -243,6 +245,32 @@ footer {
 }
 
 
+
+/*Resume Styles*/
+
+.download-link {
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+.resume-subheading {
+    display: flex;
+    justify-content: flex-end;
+    width: 15%;
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+.education-timeline {
+    position: absolute;
+    border-left: 4px solid var(--text-color);
+    margin-left: 8.5em;
+    top: 20em;
+    height: 250px;
+
+    transition: border-left 0.5s;
+}
+
 /*System Theme Prefferences*/
 :root {
     /* Light theme colors */
@@ -253,7 +281,6 @@ footer {
     --nav-color: #6986ac9d;
     --nav-color-hover:#6986ac;
 
-    --blur-color: linear-gradient(rgba(229, 237, 240, 1), rgba(229, 237, 240, 0.3));
     --hover-color: rgba(255, 255, 255, 0.23);
     --hover-blur: rgba(255, 255, 255, 0.6);
 
@@ -276,7 +303,7 @@ footer {
 /*nav-blur gradient transition*/
     .nav-blur {
         --blurColor1: rgba(29, 29, 31, 1);
-        --blurColor2: rgba(29, 29, 31, 0.3);
+        --blurColor2: rgba(29, 29, 31, 0);
       }
 }
 
@@ -526,6 +553,6 @@ footer {
   
 @property --blurColor2 {
     syntax: '<color>';
-    initial-value: rgba(229, 237, 240, 0.3);
+    initial-value: rgba(229, 237, 240, 0);
     inherits: false;
   }
