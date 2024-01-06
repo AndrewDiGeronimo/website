@@ -142,7 +142,6 @@ a {
 .main_content{
     text-align: center;
     padding-top: 10em;
-    padding-left: 3em;
     padding-bottom: 2em; 
     max-width: 55em; /* Max content width */
     margin: auto; /* Centers the main content */
@@ -176,7 +175,7 @@ a {
 footer {
     position: relative;
     border-top: 2px solid var(--footer-color); /* gray line */
-    max-width: 80em;
+    max-width: 60em;
     padding: 20px;
     margin: 5em auto;
     text-align: center;
@@ -258,13 +257,14 @@ footer {
     justify-content: flex-end;
     width: 15%;
     margin-top: 1em;
+    padding-left: 1em;
     padding-top: 1em;
 }
 
 .education-timeline {
     position: absolute;
     border-left: 4px solid var(--text-color);
-    margin-left: 8.5em;
+    margin-left: 10em;
     top: 20em;
     height: 250px;
 
@@ -444,7 +444,7 @@ footer {
 
 
     /*index styles*/
-    .content-grid {
+    .index-content-grid {
         display: block; /* Stack items instead of flex */
     }
 
