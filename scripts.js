@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 window.onload = function() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navbar = document.querySelector('.navbar');
+    const navBlur = document.querySelector('.nav-blur');
     const darkModeToggle = document.getElementById('darkModeToggle');
     const darkModeIcon = document.getElementById('darkModeIcon');
     const footer = document.querySelector('footer');
@@ -25,6 +26,7 @@ window.onload = function() {
     hamburger.addEventListener('click', function () {
         hamburger.classList.toggle('active');
         navbar.classList.toggle('active');
+        navBlur.classList.toggle('active');
     });
     
 
@@ -48,17 +50,20 @@ window.onload = function() {
     
     // Dynamically adjust dark mode button position
     function adjustDarkModeButton() {
-        const footerRect = footer.getBoundingClientRect();
+        const footerRect = document.querySelector('footer').getBoundingClientRect();
         const fromBottom = window.innerHeight - footerRect.top;
         const footerVisible = fromBottom > 20 && fromBottom < window.innerHeight;
+        const rightMargin = Math.max(window.innerWidth - footerRect.right);
     
         if (footerVisible) {
-            const newPositionAboveFooter = window.innerHeight - footerRect.top + 10;
+            const newPositionAboveFooter = fromBottom - -20;
             darkModeToggle.style.bottom = `${newPositionAboveFooter}px`;
         } else {
-            darkModeToggle.style.bottom = '30px';
+            darkModeToggle.style.bottom = '30px'; // Default position
         }
+        darkModeToggle.style.right = `${rightMargin}px`; // Adjust horizontal position
     }
+    
 
     let ticking = false;
     window.addEventListener('scroll', function(e) {

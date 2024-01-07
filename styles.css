@@ -57,7 +57,7 @@ a {
     backdrop-filter: blur(1.3px);
     -webkit-backdrop-filter: blur(1.3px);
 
-    transition: --blurColor1 0.5s, --blurColor2 0.5s;
+    transition: --blurColor1 0.5s, --blurColor2 0.5s, height 0.5s;
   }
 
 /* Hidden - For transition purposes */
@@ -149,9 +149,9 @@ a {
 }
 
 /*Dark Mode Button*/
+
 .btn-dark-mode {
     position: fixed;
-    bottom: 30px;
     right: 20px;
     border: none;
     border-radius: 50%;
@@ -159,8 +159,9 @@ a {
     line-height: 0;
     background-color: var(--nav-color-hover);
     cursor: pointer;
-
     transition: transform 0.5s, bottom 0.3s;
+    /* Initial bottom position, adjusted by JS */
+    bottom: 30px; 
 }
 
 /*Dark Mode Button Icons*/
@@ -354,7 +355,15 @@ footer {
 
     .nav-blur{
         height: 6.4em;
+        backdrop-filter: blur(1.8px);
+        -webkit-backdrop-filter: blur(1.8px);
     }
+
+    .nav-blur.active {
+        height: 100rem;
+
+        transition: height 0.5s
+      }
 
     .hamburger-menu {
         display: block;
