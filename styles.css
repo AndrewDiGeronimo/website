@@ -140,8 +140,11 @@ a {
 
 /* Main Content Styling */
 .main-content{
+    position: relative;
     padding-top: 10em;
-    padding-bottom: 2em; 
+    padding-bottom: 2em;
+    margin: auto;
+    max-width: 60em;
     z-index: 1;
 
     transition: color 0.5s;
@@ -152,6 +155,7 @@ a {
 
 .btn-dark-mode {
     position: fixed;
+    z-index: 10;
     right: 20px;
     border: none;
     border-radius: 50%;
@@ -260,25 +264,86 @@ footer {
     text-underline-offset: 8px;
 }
 
-.resume-subheading {
+.timeline-container {
     display: flex;
-    justify-content: flex-end;
-    width: 15%;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+.timeline-item {
     margin-top: 1em;
-    padding-left: 1em;
-    padding-top: 1em;
+    display: flex;
+    margin-bottom: 20px;
 }
 
-.education-timeline {
+.timeline {
+    flex-basis: 15%;
+    text-align: right;
+    position: relative;
+    padding-right: 10px;
+}
+
+/*circle at end of line*/
+.timeline::before {
+    content: '';
     position: absolute;
-    border-left: 4px solid var(--text-color);
-    margin-left: 10em;
-    top: 20em;
-    height: 250px;
-
-    transition: border-left 0.5s;
+    top:0;
+    right: -3px;
+    bottom: -4px; 
+    height: 8px;
+    width: 8px;
+    z-index: 1;
+    background-color: var(--text-color);
+    border-radius: 50%;
 }
 
+.timeline.present::before{
+    animation: pulse 1s infinite;
+}
+
+/*timeline graphic*/
+.timeline::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--nav-color);
+
+    transition: background-color 0.5s;
+}
+
+.date {
+    position: absolute;
+    font-weight: bold;
+}
+
+.end-date {
+    top: -25px;
+    right:1em;
+}
+
+.start-date {
+    bottom: -25px;
+    right:1em;
+}
+
+.experience {
+    text-align: left;
+    margin: auto;
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+.experience h3 {
+    margin-top: 0;
+}
+
+.experience li {
+    max-width: 35em;
+    padding-top: 0.5em;
+}
 
 
 /*System Theme Prefferences*/
@@ -484,7 +549,34 @@ footer {
 
         transition: flex 0.3s, padding 0.3s, max-width 0.3s;
     }
-}
+
+    /*Resume styles*/
+    .timeline {
+        padding-right: 5px;
+    }
+
+    .start-date{
+        left: 22px;
+    }
+
+    .end-date.present {
+        color: red;
+        top:1px
+    }
+
+    .date {
+        right: 5px;
+        font-size: 0.9em; /* Smaller font size for dates */
+    }
+
+    .experience {
+        padding-left: 15px;
+    }
+
+    .timeline-item {
+        margin-bottom: 15px;
+    }
+    }
 
 /*Hover effects for cursor devices only*/
 @media (hover: hover) {
@@ -569,6 +661,15 @@ footer {
 @keyframes bounceOpen {
     0%, 100% { transform: scaleY(1); }
     50% { transform: scaleY(1.1); } /* Overextend */
+}
+
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.75); 
+    }
 }
 
 @property --blurColor1 {

@@ -20,7 +20,6 @@ window.onload = function() {
     const navBlur = document.querySelector('.nav-blur');
     const darkModeToggle = document.getElementById('darkModeToggle');
     const darkModeIcon = document.getElementById('darkModeIcon');
-    const footer = document.querySelector('footer');
 
     // Hamburger Menu
     hamburger.addEventListener('click', function () {
@@ -29,6 +28,14 @@ window.onload = function() {
         navBlur.classList.toggle('active');
     });
     
+    // Close hamburger menu on outside click
+    document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !hamburger.contains(e.target)) {
+      hamburger.classList.remove('active');
+      navbar.classList.remove('active');
+      navBlur.classList.remove('active');
+    }
+  });
 
     // Dark Mode Toggle
     darkModeToggle.addEventListener('click', function () {
