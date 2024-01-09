@@ -267,8 +267,7 @@ footer {
     background-color: var(--hover-color); /* Slightly brighten the background */
     border-radius: 20px; /* This gives the squircle shape */
     border: 2px dashed var(--nav-color-hover); /* Dashed border */
-    margin-top: 1em;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
     padding: 10px 20px;
     transition: transform 0.5s, border 0.5s, box-shadow 0.5s; /* Transition for smooth effect */
 }
@@ -290,8 +289,14 @@ footer {
     
 }
 
-.graduation-date li{
+.graduation-date{
+    margin-bottom: 0.5em;
     padding-top: 1em;
+}
+
+.graduation-degree{
+    margin-top: 0.5em;
+    margin-bottom: 2em;
 }
 
 .timeline-container {
