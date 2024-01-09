@@ -226,6 +226,7 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     margin-top: 20px;
+    margin-bottom: 4em;
     max-width: 800px; 
     margin-left: auto; /* Centering the grid horizontally */
     margin-right: auto;
@@ -259,9 +260,38 @@ footer {
 
 /*Resume Styles*/
 
-.download-link {
+.download-button {
+    display: inline-block;
     text-decoration: underline;
     text-underline-offset: 8px;
+    background-color: var(--hover-color); /* Slightly brighten the background */
+    border-radius: 20px; /* This gives the squircle shape */
+    border: 2px dashed var(--nav-color-hover); /* Dashed border */
+    margin-top: 1em;
+    margin-bottom: 2em;
+    padding: 10px 20px;
+    transition: transform 0.5s, border 0.5s, box-shadow 0.5s; /* Transition for smooth effect */
+}
+
+.education-heading{
+    position: relative;
+
+}
+
+.education-subheading {
+    font-weight: bold;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.education-details {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    
+}
+
+.graduation-date li{
+    padding-top: 1em;
 }
 
 .timeline-container {
@@ -280,7 +310,6 @@ footer {
     flex-basis: 15%;
     text-align: right;
     position: relative;
-    padding-right: 10px;
 }
 
 /*circle at end of line*/
@@ -299,6 +328,7 @@ footer {
     transition: background-color 0.5s;
 }
 
+/*circle animation*/
 .timeline.present::before{
     animation: pulse 1s infinite;
 }
@@ -311,7 +341,7 @@ footer {
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: var(--nav-color);
+    background-color: var(--nav-color-hover);
 
     transition: background-color 0.5s;
 }
@@ -343,6 +373,16 @@ footer {
     margin-top: 0;
 }
 
+.experience h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+
+.experience p {
+    margin-top: 5px;
+}
+
 .experience li {
     max-width: 35em;
     padding-top: 0.5em;
@@ -351,10 +391,57 @@ footer {
 
 /*System Theme Prefferences*/
 :root {
-    /* Light theme colors */
-    --background-color: rgb(229, 237, 240);
-    --text-color: black;
 
+    /* Light theme colors -- TO BE APPLIED --
+
+    --primary: rgb(90, 156, 242);
+    --secondary: rgb(153, 184, 224);
+    --accent: rgb(235, 139, 73);
+    --background:  rgb(238, 244, 252);
+    --text: black;
+
+    --primary5: rgba(90, 156, 242, 0.05);
+    --primary10: rgba(90, 156, 242, 0.1);
+    --primary20: rgba(90, 156, 242, 0.2);
+    --primary30: rgba(90, 156, 242, 0.3);
+    --primary40: rgba(90, 156, 242, 0.4);
+    --primary50: rgba(90, 156, 242, 0.5);
+    --primary60: rgba(90, 156, 242, 0.6);
+    --primary70: rgba(90, 156, 242, 0.7);
+    --primary80: rgba(90, 156, 242, 0.8);
+    --primary90: rgba(90, 156, 242, 0.9);
+    --primary95: rgba(90, 156, 242, 0.95);
+
+    --secondary5: rgba(153, 184, 224, 0.05);
+    --secondary10: rgba(153, 184, 224, 0.1);
+    --secondary20: rgba(153, 184, 224, 0.2);
+    --secondary30: rgba(153, 184, 224, 0.3);
+    --secondary40: rgba(153, 184, 224, 0.4);
+    --secondary50: rgba(153, 184, 224, 0.5);
+    --secondary60: rgba(153, 184, 224, 0.6);
+    --secondary70: rgba(153, 184, 224, 0.7);
+    --secondary80: rgba(153, 184, 224, 0.8);
+    --secondary90: rgba(153, 184, 224, 0.9);
+    --secondary95: rgba(153, 184, 224, 0.95);
+
+    --accent5: rgba(235, 139, 73,0.05);
+    --accent10: rgba(235, 139, 73,0.1);
+    --accent20: rgba(235, 139, 73,0.2);
+    --accent30: rgba(235, 139, 73,0.3);
+    --accent40: rgba(235, 139, 73,0.4);
+    --accent50: rgba(235, 139, 73,0.5);
+    --accent60: rgba(235, 139, 73,0.6);
+    --accent70: rgba(235, 139, 73,0.7);
+    --accent80: rgba(235, 139, 73,0.8);
+    --accent90: rgba(235, 139, 73,0.9);
+    --accent95: rgba(235, 139, 73,0.95);
+    */
+
+    /* Light theme colors */
+
+    --background-color:  rgb(238, 244, 252);
+    --text-color: black;
+    
     /* Nav Styling */
     --nav-color: rgba(105, 134, 172, 0.616);
     --nav-color-hover:rgba(105, 134, 172, 0.95);
@@ -540,6 +627,7 @@ footer {
     /*index styles*/
     .index-content-grid {
         display: block; /* Stack items instead of flex */
+        margin-bottom: 2em;
     }
 
     .portrait img{
@@ -649,22 +737,36 @@ footer {
 
         transition: transform 0.2s;
     }
+
+    /*Resume Styles*/
+
+    .download-button:hover{
+        transform: scale(1.25) translateY(-4px); /* Scales up the link (and thus the icon) */
+        background-color: var(--hover-color); /* Slightly brighten the background */
+        box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
+
+        transition: color 0.2s, transform 0.2s;
+    }
     
 }
 
 
 
 /*Animations and Transitions*/
+
+/*Text body on load*/
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
 
+/*Over-Expand Hamburger*/
 @keyframes bounceOpen {
     0%, 100% { transform: scaleY(1); }
     50% { transform: scaleY(1.1); } /* Overextend */
 }
 
+/*Resume present day*/
 @keyframes pulse {
     0% {
       transform: scale(1);
@@ -676,12 +778,12 @@ footer {
 
 @property --blurColor1 {
     syntax: '<color>';
-    initial-value: rgba(229, 237, 240, 1);
+    initial-value: rgba(238, 244, 252, 1);
     inherits: false;
   }
   
 @property --blurColor2 {
     syntax: '<color>';
-    initial-value: rgba(229, 237, 240, 0);
+    initial-value: rgba(238, 244, 252, 0);
     inherits: false;
   }
