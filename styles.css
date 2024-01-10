@@ -265,11 +265,11 @@ footer {
     text-decoration: underline;
     text-underline-offset: 8px;
     background-color: var(--hover-color); /* Slightly brighten the background */
-    border-radius: 20px; /* This gives the squircle shape */
+    border-radius: 1em; /*squircle shape */
     border: 2px dashed var(--nav-color-hover); /* Dashed border */
     margin-bottom: 3em;
     padding: 10px 20px;
-    transition: transform 0.5s, border 0.5s, box-shadow 0.5s; /* Transition for smooth effect */
+    transition: background-color 0.5s, transform 0.5s, border 0.5s, box-shadow 0.5s;
 }
 
 .education-heading{
@@ -393,6 +393,76 @@ footer {
     padding-top: 0.5em;
 }
 
+
+
+
+/*Projects Styles*/
+.project-container{
+    text-align: left;
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
+.project-year{
+ font-size: 1.8em;
+ font-weight: bold;
+ text-decoration: underline;
+ text-decoration-color: var(--nav-color-hover);
+}
+
+.project-item{
+    margin-top: 2em;
+    margin-left: 1em;
+}
+
+.project-title{
+    font-size: 1.5em;
+}
+
+.project-repo{
+    font-size: 0.8em;
+    text-decoration: underline;
+    margin-top: 0.5em;
+}
+
+.project-description li{
+    margin-top: 1em;
+}
+
+.lang-html{
+    color: orangered;
+}
+
+.lang-css{
+    color: darkcyan
+}
+
+.lang-js{
+    color: orange;
+}
+
+.lang-python{
+    color: green;
+}
+
+.lang-sql{
+    color: blueviolet;
+}
+
+
+/*Contact Styles*/
+.copy-button, .mail-button {
+    display: inline-block;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1em;
+    background-color: var(--hover-color); /* Slightly brighten the background */
+    border-radius: 1em; /*squircle shape */
+    border: 2px solid var(--nav-color-hover); /* Dashed border */
+    margin: 1em;
+    padding: 10px 20px;
+    transition: color 0.5s, background-color 0.5s, transform 0.5s, border 0.5s, box-shadow 0.5s;
+}
 
 /*System Theme Prefferences*/
 :root {
@@ -730,7 +800,7 @@ footer {
         transition: transform 0.2s;
     }
     
-    .btn-dark-mode:active{
+    .btn-dark-mode:active, .copy-button:active, .mail-button:active{
         transform: scale(0.75);
     }
     
@@ -745,12 +815,16 @@ footer {
 
     /*Resume Styles*/
 
-    .download-button:hover{
+    .download-button:hover, .copy-button:hover, .mail-button:hover{
         transform: scale(1.25) translateY(-4px); /* Scales up the link (and thus the icon) */
         background-color: var(--hover-color); /* Slightly brighten the background */
         box-shadow: 0 0 10px var(--hover-blur); /* Blur effect */
 
         transition: color 0.2s, transform 0.2s;
+    }
+
+    .copy-button:active, .mail-button:active{
+        transform: scale(0.75);
     }
     
 }
