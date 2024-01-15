@@ -124,6 +124,10 @@ a {
     display: inline-block; 
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 .nav-links .current-page::before {
     content: '';
     position: absolute;
@@ -400,7 +404,9 @@ footer {
 .project-container{
     text-align: left;
     margin-top: 2em;
-    margin-left: 2em;
+    margin-left: 1.5em;
+
+    transition: margin-left 0.2s;
 }
 
 .project-year{
@@ -408,15 +414,47 @@ footer {
  font-weight: bold;
  text-decoration: underline;
  text-decoration-color: var(--nav-color-hover);
+ margin-top: 1em;
 }
 
 .project-item{
-    margin-top: 2em;
+    display: flex;
+    background-color: var(--hover-blur);
+    border-radius: 0.5em;
+    padding: 1em;
+    margin-top: 1em;
     margin-left: 1em;
+    margin-right: 1em;
+
+    transition: background-color 0.5s;
 }
 
 .project-title{
     font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.project-content{
+    flex: 50%;
+
+}
+
+.project-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 50%;
+    padding: 20px;
+}
+
+.project-image img {
+
+    width: 100%; /* Makes the image responsive */
+    border-radius: 0.5em;
+}
+
+.project-skills{
+    margin: 0.5em 0em;
 }
 
 .project-repo{
@@ -429,24 +467,48 @@ footer {
     margin-top: 1em;
 }
 
-.lang-html{
-    color: orangered;
+/*Skill framework*/
+.skill{
+    background-color: var(--hover-blur);
+    border-color: var(--text-color);
+    border-style: solid;
+    border-width: 0.15em;
+    border-radius: 0.25em;
+    padding: 0em 0.5em;
+    margin-right: 0.5em;
+
+    transition: background-color 0.5s, border-color 0.5s;
 }
 
-.lang-css{
-    color: darkcyan
+/*Individual skill styles*/
+.skill.html{
+    background-color: rgba(255, 68, 0, 0.2);
+    border-color: orangered;
 }
 
-.lang-js{
-    color: orange;
+.skill.css{
+    background-color: rgba(135, 206, 250, 0.2);
+    border-color: lightskyblue;
 }
 
-.lang-python{
-    color: green;
+.skill.cPlus{
+    background-color: rgba(0, 128, 128, 0.2);
+    border-color: teal;
 }
 
-.lang-sql{
-    color: blueviolet;
+.skill.js{
+    background-color: rgba(255, 166, 0, 0.2);
+    border-color: orange;
+}
+
+.skill.python{
+    background-color: rgba(0, 128, 0, 0.2);
+    border-color: green;
+}
+
+.skill.sql{
+    background-color: rgba(137, 43, 226, 0.2);
+    border-color: blueviolet;
 }
 
 
@@ -472,7 +534,7 @@ footer {
     --primary: rgb(90, 156, 242);
     --secondary: rgb(153, 184, 224);
     --accent: rgb(235, 139, 73);
-    --background:  rgb(238, 244, 252);
+    --background:  rgb(247, 252, 255);
     --text: black;
 
     --primary5: rgba(90, 156, 242, 0.05);
@@ -514,7 +576,7 @@ footer {
 
     /* Light theme colors */
 
-    --background-color:  rgb(238, 244, 252);
+    --background-color:  rgb(247, 252, 255);
     --text-color: black;
     
     /* Nav Styling */
@@ -568,7 +630,16 @@ footer {
     .nav-links a::after {
         transform: scale(0.85);
     }
+
+    /*Projects Styles*/
+
+    .project-container{
+        margin-left: 0.5em;
+    
+        transition: margin-left 0.2s;
+    }
   }
+
 
 @media (max-width: 725px) {
     body {
@@ -741,6 +812,28 @@ footer {
     .timeline-item {
         margin-bottom: 15px;
     }
+
+    /*Projects Styles*/
+
+    .project-container{
+        margin-left: 0em;
+
+        transition: margin-left 0.2s;
+    }
+
+    .project-item{
+        display: block;
+        margin-left: 0.25em;
+    }
+
+    .project-image{
+        display: block;
+    }
+
+    .project-content, .project-image {
+        flex: 100%; /* Both take full width on smaller screens */
+    }
+    
     }
 
 /*Hover effects for cursor devices only*/
@@ -857,12 +950,12 @@ footer {
 
 @property --blurColor1 {
     syntax: '<color>';
-    initial-value: rgba(238, 244, 252, 1);
+    initial-value: rgba(247, 252, 255, 1);
     inherits: false;
   }
   
 @property --blurColor2 {
     syntax: '<color>';
-    initial-value: rgba(238, 244, 252, 0);
+    initial-value: rgba(247, 252, 255, 0);
     inherits: false;
   }
