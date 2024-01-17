@@ -1,14 +1,13 @@
 // Saved Theme Preferences 
 document.addEventListener('DOMContentLoaded', function() {
-    const storedTheme = localStorage.getItem('theme');
-
-    if (document.body) {
-        setTheme(storedTheme);
-    }
+    const storedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    
+    setTheme(storedTheme);
 
     function setTheme(theme) {
-        if (document.body) {
-            document.body.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
+        // Ensure darkModeIcon is defined and then update its class
+        if (darkModeIcon) {
             darkModeIcon.className = theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon';
         }
     }
