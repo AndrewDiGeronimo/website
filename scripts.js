@@ -13,6 +13,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Dynamically load the gtag.js script
+var gtagScript = document.createElement('script');
+gtagScript.async = true;
+gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-9Q5HKS7H25';
+document.head.appendChild(gtagScript);
+
+// Google Analytics tracking code
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+  dataLayer.push(arguments);
+}
+gtag('js', new Date());
+
+gtag('config', 'G-9Q5HKS7H25');
+
 window.onload = function() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navbar = document.querySelector('.navbar');
