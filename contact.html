@@ -55,4 +55,26 @@
 </footer>
 </body>
 <script src="scripts.js"></script>
+<script>
+    // Copy + Send Email Script
+    document.addEventListener('DOMContentLoaded', function () {
+        
+        // Event listener for copy-button
+        document.getElementById('copy-button').addEventListener('click', function() {
+            navigator.clipboard.writeText('contact@andrewdigeronimo.com').then(() => {
+                alert('Email copied to clipboard!');
+            }).catch(err => {
+                console.error('Error in copying text: ', err);
+            });
+        });
+
+        // Event listener for mail-button
+        var mailButton = document.getElementById('mail-button');
+        if (mailButton) {
+            mailButton.addEventListener('click', function() {
+                window.location.href = 'mailto:contact@andrewdigeronimo.com';
+            });
+        }
+    });
+</script>
 </html>

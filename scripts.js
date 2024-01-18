@@ -102,17 +102,4 @@ window.onload = function() {
     // Adjust button position on page load
     adjustDarkModeButton();
 
-
-    //Contact functions
-    document.getElementById('copy-button').addEventListener('click', function() {
-        navigator.clipboard.writeText('contact@andrewdigeronimo.com').then(() => {
-            alert('Email copied to clipboard!');
-        }).catch(err => {
-            console.error('Error in copying text: ', err);
-        });
-    });
-    
-    document.getElementById('mail-button').addEventListener('click', function() {
-        window.location.href = 'mailto:contact@andrewdigeronimo.com';
-    });
 };
