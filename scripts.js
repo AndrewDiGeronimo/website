@@ -103,3 +103,22 @@ window.onload = function() {
     adjustDarkModeButton();
 
 };
+
+//Dynamic Fade In Effect
+function checkVisibility() {
+    const elements = document.querySelectorAll('.hidden-content');
+    
+    elements.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 200) {
+        el.classList.add('visible-content');
+      } 
+    });
+  }
+  
+  // Check visibility on scroll
+  document.addEventListener('scroll', checkVisibility);
+  
+  // Check visibility on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    checkVisibility();
+  });

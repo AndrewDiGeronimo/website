@@ -155,6 +155,15 @@ a {
     animation: fadeIn 1s;
 }
 
+.hidden-content {
+    opacity: 0;
+  }
+  
+  .visible-content {
+    opacity: 1;
+    animation: fadeIn 0.5s;
+  }
+
 /*Dark Mode Button*/
 
 .btn-dark-mode {
@@ -346,7 +355,7 @@ footer {
 .timeline::after {
     content: '';
     position: absolute;
-    right: 0;
+    right: 0px;
     top: 0;
     bottom: 0;
     width: 2px;
@@ -361,13 +370,13 @@ footer {
 }
 
 .end-date {
-    top: -25px;
-    right:1em;
+    top: -55px;
+    right:-1.58em;
 }
 
 .start-date {
-    bottom: -25px;
-    right:1em;
+    bottom: -55px;
+    right: -2.0em;
 }
 
 .experience {
@@ -375,7 +384,9 @@ footer {
     margin: auto;
     flex-basis: 0%;
     flex-grow: 1;
+    padding-top: 1em;
     padding-left: 20px;
+    padding-bottom: 0.5em;
 }
 
 .experience h3 {
@@ -425,6 +436,7 @@ footer {
     margin-top: 1em;
     margin-left: 1em;
     margin-right: 0.25em;
+    margin-bottom: 3em;
 
     transition: background-color 0.5s;
 }
@@ -796,15 +808,24 @@ footer {
 
     /*Resume styles*/
     .timeline {
+        margin-bottom: 1.5em;
         padding-right: 5px;
     }
 
+    .timeline::before {
+        right: 1.8em;
+    }
+
+    .timeline::after {
+        right: 2em;
+    }
+
     .start-date{
-        left: 22px;
+        text-align: center;
     }
 
     .end-date.present {
-        top:1px
+        top:-40px;
     }
 
     .date {
@@ -813,7 +834,7 @@ footer {
     }
 
     .experience {
-        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .timeline-item {
@@ -935,8 +956,8 @@ footer {
 
 /*Text body on load*/
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% { opacity: 0; transform: translateY(15px);}
+    100% { opacity: 1; transform: translateY(0px);}
   }
 
 /*Over-Expand Hamburger*/
