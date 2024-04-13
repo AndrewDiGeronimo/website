@@ -102,6 +102,31 @@ window.onload = function() {
     // Adjust button position on page load
     adjustDarkModeButton();
 
+
+    // Play project video on load
+    function loadVideo() {
+        const videoContainer = document.getElementById('projectVideo');
+        const thumbnail = document.getElementById('projectThumbnail');
+        
+        // Create video element
+        const video = document.createElement('video');
+        video.setAttribute('width', '100%');
+        video.setAttribute('controls', '');
+        video.src = '/Media/Appdemo.m4v';
+
+        // Append the video
+        videoContainer.appendChild(video);
+        
+
+        // Delay switching from thumbnail to video
+        setTimeout(() => {
+            videoContainer.style.display = 'block';
+            thumbnail.style.display = 'none';
+
+        }, 2000); // 2000 milliseconds = 2 seconds
+    }
+
+    loadVideo();
 };
 
 //Dynamic Fade In Effect
