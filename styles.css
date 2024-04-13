@@ -21,11 +21,11 @@ a {
     justify-content: space-between;
     box-sizing: border-box;
     padding: 12px;
-    background-color: var(--nav-color);
+    background-color: var(--primary80);
     max-width: 60em;
     margin: 2.5em auto; /* Centers navbar elements */ 
     border-radius: 1em;
-    border-color: var(--nav-color);
+    border-color: var(--primary90);
     border-style: solid;
 
     transition: background-color 0.5s;
@@ -73,6 +73,7 @@ a {
     margin-left: 1em;
     margin-right: auto 1em;
     font-size: 16pt;
+    font-weight:bold;
 
     transition: transform 0.5s, color 0.5s, background-color 0.2s, box-shadow 0.2s, border-radius 0.2s; /* Smooth transition for transform and font-size */
 }
@@ -84,6 +85,7 @@ a {
     gap: 40px; /* Adjusts the space between each link */
     margin: auto 1em;
     font-size: 16pt;
+    font-weight:bold;
 
     transition: margin 0.3s ease, gap 0.3s ease; /*Page Resize Animation Speed*/
 }
@@ -112,7 +114,7 @@ a {
     border-radius: 0.4em; /* Ensure it matches the border radius of the link */
     background-color: var(--hover-color); /* Slightly brighten the background */
     opacity: 0; /* Start fully transparent */
-    box-shadow: 0 0 8px var(--hover-blur); /* Adjusted blur effect */
+    box-shadow: 0 0 50px var(--hover-blur); /* Adjusted blur effect */
     z-index: -1; /* Ensure it doesn't block interaction with the link */
     pointer-events: none;
 
@@ -174,7 +176,7 @@ a {
     border-radius: 50%;
     padding: 10px;
     line-height: 0;
-    background-color: var(--nav-color-hover);
+    background-color: var(--secondary80);
     cursor: pointer;
     transition: transform 0.5s, bottom 0.3s;
     /* Initial bottom position, adjusted by JS */
@@ -189,7 +191,7 @@ a {
 
 footer {
     position: relative;
-    border-top: 2px solid var(--footer-color); /* gray line */
+    border-top: 2px solid var(--accent30); /* gray line */
     max-width: 70em;
     padding: 20px;
     margin: 5em auto;
@@ -463,8 +465,12 @@ footer {
 
     width: 100%; /* Makes the image responsive */
     border-radius: 0.5em;
+    z-index: 5;
 }
 
+.project-video{
+    z-index: 111;
+}
 .project-skills{
     margin: 0.5em 0em;
 }
@@ -530,6 +536,18 @@ footer {
     box-shadow: 0px 0px 25px rgba(137, 43, 226, 0.5);
 }
 
+.skill.swift{
+    background-color: rgba(44, 44, 255, 0.2);
+    border-color: blue;
+    box-shadow: 0px 0px 25px rgba(44, 44, 255, 0.5);
+}
+
+.skill.api{
+    background-color: rgba(255, 182, 193, 0.2);
+    border-color: lightpink;
+    box-shadow: 0px 0px 25px rgba(255, 182, 193, 0.5);
+}
+
 
 /*Contact Styles*/
 .copy-button, .mail-button {
@@ -548,55 +566,65 @@ footer {
 /*System Theme Prefferences*/
 :root {
 
-    /* Light theme colors -- TO BE APPLIED --
-
+    /* Light theme colors */
     --primary: rgb(90, 156, 242);
-    --secondary: rgb(153, 184, 224);
-    --accent: rgb(235, 139, 73);
+    --secondary: rgb(148, 197, 229);
+    --accent: rgb(81, 180, 246);
     --background:  rgb(247, 252, 255);
-    --text: black;
+    --text: rgb(3, 10, 12);
 
-    --primary5: rgba(90, 156, 242, 0.05);
-    --primary10: rgba(90, 156, 242, 0.1);
-    --primary20: rgba(90, 156, 242, 0.2);
-    --primary30: rgba(90, 156, 242, 0.3);
-    --primary40: rgba(90, 156, 242, 0.4);
-    --primary50: rgba(90, 156, 242, 0.5);
-    --primary60: rgba(90, 156, 242, 0.6);
-    --primary70: rgba(90, 156, 242, 0.7);
-    --primary80: rgba(90, 156, 242, 0.8);
-    --primary90: rgba(90, 156, 242, 0.9);
-    --primary95: rgba(90, 156, 242, 0.95);
+    --primary5:  rgba(65, 158, 216, 0.05);
+    --primary10: rgba(65, 158, 216, 0.1);
+    --primary20: rgba(65, 158, 216, 0.2);
+    --primary30: rgba(65, 158, 216, 0.3);
+    --primary40: rgba(65, 158, 216, 0.4);
+    --primary50: rgba(65, 158, 216, 0.5);
+    --primary60: rgba(65, 158, 216, 0.6);
+    --primary70: rgba(65, 158, 216, 0.7);
+    --primary80: rgba(65, 158, 216, 0.8);
+    --primary90: rgba(65, 158, 216, 0.9);
+    --primary95: rgba(65, 158, 216, 0.95);
 
-    --secondary5: rgba(153, 184, 224, 0.05);
-    --secondary10: rgba(153, 184, 224, 0.1);
-    --secondary20: rgba(153, 184, 224, 0.2);
-    --secondary30: rgba(153, 184, 224, 0.3);
-    --secondary40: rgba(153, 184, 224, 0.4);
-    --secondary50: rgba(153, 184, 224, 0.5);
-    --secondary60: rgba(153, 184, 224, 0.6);
-    --secondary70: rgba(153, 184, 224, 0.7);
-    --secondary80: rgba(153, 184, 224, 0.8);
-    --secondary90: rgba(153, 184, 224, 0.9);
-    --secondary95: rgba(153, 184, 224, 0.95);
+    --secondary5:  rgba(148, 197, 229, 0.05);
+    --secondary10: rgba(148, 197, 229, 0.1);
+    --secondary20: rgba(148, 197, 229, 0.2);
+    --secondary30: rgba(148, 197, 229, 0.3);
+    --secondary40: rgba(148, 197, 229, 0.4);
+    --secondary50: rgba(148, 197, 229, 0.5);
+    --secondary60: rgba(148, 197, 229, 0.6);
+    --secondary70: rgba(148, 197, 229, 0.7);
+    --secondary80: rgba(148, 197, 229, 0.8);
+    --secondary90: rgba(148, 197, 229, 0.9);
+    --secondary95: rgba(148, 197, 229, 0.95);
 
-    --accent5: rgba(235, 139, 73,0.05);
-    --accent10: rgba(235, 139, 73,0.1);
-    --accent20: rgba(235, 139, 73,0.2);
-    --accent30: rgba(235, 139, 73,0.3);
-    --accent40: rgba(235, 139, 73,0.4);
-    --accent50: rgba(235, 139, 73,0.5);
-    --accent60: rgba(235, 139, 73,0.6);
-    --accent70: rgba(235, 139, 73,0.7);
-    --accent80: rgba(235, 139, 73,0.8);
-    --accent90: rgba(235, 139, 73,0.9);
-    --accent95: rgba(235, 139, 73,0.95);
-    */
+    --accent5:  rgba(81, 180, 246, 0.05);
+    --accent10: rgba(81, 180, 246, 0.1);
+    --accent20: rgba(81, 180, 246, 0.2);
+    --accent30: rgba(81, 180, 246, 0.3);
+    --accent40: rgba(81, 180, 246, 0.4);
+    --accent50: rgba(81, 180, 246, 0.5);
+    --accent60: rgba(81, 180, 246, 0.6);
+    --accent70: rgba(81, 180, 246, 0.7);
+    --accent80: rgba(81, 180, 246, 0.8);
+    --accent90: rgba(81, 180, 246, 0.9);
+    --accent95: rgba(81, 180, 246, 0.95);
+
+    --text5:  rgba(3, 10, 12, 0.05);
+    --text10: rgba(3, 10, 12, 0.1);
+    --text20: rgba(3, 10, 12, 0.2);
+    --text30: rgba(3, 10, 12, 0.3);
+    --text40: rgba(3, 10, 12, 0.4);
+    --text50: rgba(3, 10, 12, 0.5);
+    --text60: rgba(3, 10, 12, 0.6);
+    --text70: rgba(3, 10, 12, 0.7);
+    --text80: rgba(3, 10, 12, 0.8);
+    --text90: rgba(3, 10, 12, 0.9);
+    --text95: rgba(3, 10, 12, 0.95);
 
     /* Light theme colors */
 
     --background-color:  rgb(247, 252, 255);
-    --text-color: black;
+    --text-color: rgb(3, 10, 12);
     
     /* Nav Styling */
     --nav-color: rgba(105, 134, 172, 0.616);
@@ -609,6 +637,61 @@ footer {
 }
 
 [data-theme="dark"] {
+
+    --primary: rgb(90, 156, 242);
+    --secondary: rgb(153, 184, 224);
+    --accent: rgb(235, 139, 73);
+    --background:  rgb(247, 252, 255);
+    --text: rgb(255, 255, 255);
+
+    --primary5:  rgba(65, 158, 216, 0.05);
+    --primary10: rgba(65, 158, 216, 0.1);
+    --primary20: rgba(65, 158, 216, 0.2);
+    --primary30: rgba(65, 158, 216, 0.3);
+    --primary40: rgba(65, 158, 216, 0.4);
+    --primary50: rgba(65, 158, 216, 0.5);
+    --primary60: rgba(65, 158, 216, 0.6);
+    --primary70: rgba(65, 158, 216, 0.7);
+    --primary80: rgba(65, 158, 216, 0.8);
+    --primary90: rgba(65, 158, 216, 0.9);
+    --primary95: rgba(65, 158, 216, 0.95);
+
+    --secondary5:  rgba(148, 197, 229, 0.05);
+    --secondary10: rgba(148, 197, 229, 0.1);
+    --secondary20: rgba(148, 197, 229, 0.2);
+    --secondary30: rgba(148, 197, 229, 0.3);
+    --secondary40: rgba(148, 197, 229, 0.4);
+    --secondary50: rgba(148, 197, 229, 0.5);
+    --secondary60: rgba(148, 197, 229, 0.6);
+    --secondary70: rgba(148, 197, 229, 0.7);
+    --secondary80: rgba(148, 197, 229, 0.8);
+    --secondary90: rgba(148, 197, 229, 0.9);
+    --secondary95: rgba(148, 197, 229, 0.95);
+
+    --accent5:  rgba(81, 180, 246, 0.05);
+    --accent10: rgba(81, 180, 246, 0.1);
+    --accent20: rgba(81, 180, 246, 0.2);
+    --accent30: rgba(81, 180, 246, 0.3);
+    --accent40: rgba(81, 180, 246, 0.4);
+    --accent50: rgba(81, 180, 246, 0.5);
+    --accent60: rgba(81, 180, 246, 0.6);
+    --accent70: rgba(81, 180, 246, 0.7);
+    --accent80: rgba(81, 180, 246, 0.8);
+    --accent90: rgba(81, 180, 246, 0.9);
+    --accent95: rgba(81, 180, 246, 0.95);
+
+    --text5:  rgba(255, 255, 255, 0.05);
+    --text10: rgba(255, 255, 255, 0.1);
+    --text20: rgba(255, 255, 255, 0.2);
+    --text30: rgba(255, 255, 255, 0.3);
+    --text40: rgba(255, 255, 255, 0.4);
+    --text50: rgba(255, 255, 255, 0.5);
+    --text60: rgba(255, 255, 255, 0.6);
+    --text70: rgba(255, 255, 255, 0.7);
+    --text80: rgba(255, 255, 255, 0.8);
+    --text90: rgba(255, 255, 255, 0.9);
+    --text95: rgba(255, 255, 255, 0.95);
+
     /* Dark theme colors */
     --background-color: rgb(29, 29, 31);
     --text-color: white;
@@ -666,7 +749,6 @@ footer {
     }
 
     .navbar{
-        background-color: var(--nav-color-hover);
         top: -12px; /* Higher touch target for mobile */
 
         /*Reposition on resize + Theme Shift*/
@@ -868,9 +950,10 @@ footer {
 @media (hover: hover) {
     
     .navbar:hover{
-        background-color: var(--nav-color-hover);
+        background-color: var(--primary95);
+        border-color: var(--primary);
 
-        transition: background-color 0.2s ease;
+        transition: background-color 0.2s, border-color 0.2s;
     }
 
     .hamburger-menu:hover {
